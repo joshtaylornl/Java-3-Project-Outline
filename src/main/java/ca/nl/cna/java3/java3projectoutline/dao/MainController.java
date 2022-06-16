@@ -22,6 +22,7 @@ import java.util.Optional;
 public class MainController {
 
     //Constants used in REST API definition
+    public static final String API_ROOT_PATH = "/api";
     public static final String VERSION_1 = "/v1";
     public static final String EDUCATION = "/educations";
 
@@ -55,13 +56,12 @@ public class MainController {
      */
     @PostMapping(path=VERSION_1 + EDUCATION)
     public @ResponseBody
-    String addNewEducation(@RequestParam Integer id, @RequestParam String title,
+    String addNewEducation(@RequestParam String title,
             @RequestParam String institutionName, @RequestParam Integer gradYear,
             @RequestParam LocalDate startDate, @RequestParam LocalDate endDate,
             @RequestParam String abbreviation){
 
         Education education = new Education();
-        education.setId(id);
         education.setTitle(title);
         education.setInstitutionName(institutionName);
         education.setGradYear(gradYear);
